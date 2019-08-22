@@ -79,15 +79,15 @@ import { PhoneInputDirective } from './directives/phone-input/phone-input.direct
      * only those that are used by app
      * should be imported to reduce bundle size
      */
-    NgbDatepickerModule.forRoot(),
-    NgbCollapseModule.forRoot(),
-    NgbModalModule.forRoot(),
-    NgbTabsetModule.forRoot(),
-    NgbPaginationModule.forRoot(),
-    NgbPopoverModule.forRoot(),
-    NgbAccordionModule.forRoot(),
-    NgbCarouselModule.forRoot(),
-    NgbDropdownModule.forRoot(),
+    NgbDatepickerModule,
+    NgbCollapseModule,
+    NgbModalModule,
+    NgbTabsetModule,
+    NgbPaginationModule,
+    NgbPopoverModule,
+    NgbAccordionModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
   ],
   exports: [
     // angular
