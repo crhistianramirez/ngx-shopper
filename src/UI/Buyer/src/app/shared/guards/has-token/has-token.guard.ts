@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID, Injector } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { OcTokenService } from '@ordercloud/angular-sdk';
 import * as jwtDecode from 'jwt-decode';
@@ -8,6 +8,7 @@ import { AppAuthService } from 'src/app/auth/services/app-auth.service';
 import { of, Observable } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
+import { isPlatformServer } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,8 @@ export class HasTokenGuard implements CanActivate {
     private router: Router,
     private appAuthService: AppAuthService,
     private appStateService: AppStateService,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private injector: Injector,
     @Inject(applicationConfiguration) private appConfig: AppConfig
   ) {}
   canActivate(): Observable<boolean> {
@@ -31,17 +34,23 @@ export class HasTokenGuard implements CanActivate {
      */
 
     // check for impersonation superseeds existing tokens to allow impersonating buyers sequentially.
-    // TODO: add this back in later
-    // if (window.location.pathname === '/impersonation') {
-    //   const match = /token=([^&]*)/.exec(window.location.search);
-    //   if (match) {
-    //     this.ocTokenService.SetAccess(match[1]);
-    //     this.appStateService.isLoggedIn.next(true);
-    //     return of(true);
-    //   } else {
-    //     alert(`Missing url query param 'token'`);
-    //   }
-    // }
+    let isImpersonating: boolean;
+    if (isPlatformServer(this.platformId)) {
+      const req = this.injector.get('request');
+      isImpersonating = req.path === '/impersonation';
+    } else {
+      isImpersonating = window.location.pathname === '/impersonation';
+    }
+    if (isImpersonating) {
+      const match = /token=([^&]*)/.exec(window.location.search);
+      if (match) {
+        this.ocTokenService.SetAccess(match[1]);
+        this.appStateService.isLoggedIn.next(true);
+        return of(true);
+      } else {
+        alert(`Missing url query param 'token'`);
+      }
+    }
 
     const isAccessTokenValid = this.isTokenValid();
     const refreshTokenExists =
