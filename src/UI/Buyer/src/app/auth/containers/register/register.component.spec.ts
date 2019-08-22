@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegisterComponent } from 'src/app/auth/containers/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OcMeService, OcTokenService, MeUser } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import {
   applicationConfiguration,
   AppConfig,

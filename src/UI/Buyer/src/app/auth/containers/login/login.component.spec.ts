@@ -12,7 +12,7 @@ import {
 } from 'src/app/config/app.config';
 
 import { OcAuthService, OcTokenService } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { AppAuthService } from 'src/app/auth';
 import { AppStateService } from 'src/app/shared';
 

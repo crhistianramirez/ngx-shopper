@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import { CartService, AppStateService } from 'src/app/shared';
 import { ProductDetailsComponent } from 'src/app/product/containers/product-details/product-details.component';
 
-import { CookieService, CookieModule } from 'ngx-cookie';
+import { CookieService, CookieModule } from '@gorniv/ngx-universal';
 import {
   OcLineItemService,
   OcTokenService,

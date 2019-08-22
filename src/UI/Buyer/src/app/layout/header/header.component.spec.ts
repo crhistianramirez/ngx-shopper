@@ -14,7 +14,7 @@ import { AppStateService, BaseResolveService } from 'src/app/shared';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbPopoverModule, NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import {
   applicationConfiguration,
   AppConfig,

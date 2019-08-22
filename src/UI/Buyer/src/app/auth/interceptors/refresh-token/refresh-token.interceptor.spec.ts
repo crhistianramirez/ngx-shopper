@@ -18,7 +18,7 @@ import {
   AppConfig,
 } from 'src/app/config/app.config';
 import { OcTokenService } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { AppAuthService } from 'src/app/auth/services/app-auth.service';
 import { of, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';

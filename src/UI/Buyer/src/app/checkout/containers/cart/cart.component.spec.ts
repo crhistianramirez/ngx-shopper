@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InjectionToken, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { of } from 'rxjs';
 import { OcOrderService, OcMeService } from '@ordercloud/angular-sdk';
 

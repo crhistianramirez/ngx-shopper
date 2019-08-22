@@ -6,13 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { InjectionToken } from '@angular/core';
 
 import { ForgotPasswordComponent } from 'src/app/auth/containers/forgot-password/forgot-password.component';
-import {
-  applicationConfiguration,
-  AppConfig,
-} from 'src/app/config/app.config';
+import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 
 import { OcPasswordResetService } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { ToastrService } from 'ngx-toastr';
 
 describe('ForgotPasswordComponent', () => {

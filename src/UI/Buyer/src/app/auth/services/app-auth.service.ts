@@ -5,11 +5,8 @@ import { Router } from '@angular/router';
 
 // 3rd party
 import { OcTokenService, OcAuthService } from '@ordercloud/angular-sdk';
-import {
-  applicationConfiguration,
-  AppConfig,
-} from 'src/app/config/app.config';
-import { CookieService } from 'ngx-cookie';
+import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
+import { CookieService } from '@gorniv/ngx-universal';
 import { AppErrorHandler } from 'src/app/config/error-handling.config';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
 import { BaseResolveService } from 'src/app/shared/services/base-resolve/base-resolve.service';

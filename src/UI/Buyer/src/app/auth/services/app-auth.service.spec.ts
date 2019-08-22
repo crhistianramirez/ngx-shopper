@@ -6,7 +6,7 @@ import {
   OcAuthService,
   OcTokenService,
 } from '@ordercloud/angular-sdk';
-import { CookieModule, CookieService } from 'ngx-cookie';
+import { CookieModule, CookieService } from '@gorniv/ngx-universal';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppErrorHandler } from 'src/app/config/error-handling.config';
 import { AppAuthService } from 'src/app/auth/services/app-auth.service';

@@ -5,7 +5,7 @@ import { BaseResolveService } from 'src/app/shared/services/base-resolve/base-re
 import { applicationConfiguration } from 'src/app/config/app.config';
 
 import { OcAuthService, Configuration } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BaseResolveService', () => {

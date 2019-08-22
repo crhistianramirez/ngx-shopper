@@ -8,7 +8,7 @@ import {
   OcTokenService,
   Configuration,
 } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import {
   applicationConfiguration,
   AppConfig,

@@ -10,7 +10,7 @@ import {
   AppConfig,
 } from 'src/app/config/app.config';
 import { InjectionToken } from '@angular/core';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { of } from 'rxjs';
 import { HomeComponent } from 'src/app/layout/home/home.component';
 import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';

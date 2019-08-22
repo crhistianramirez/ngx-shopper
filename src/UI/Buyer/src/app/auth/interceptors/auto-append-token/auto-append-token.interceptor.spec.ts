@@ -8,7 +8,7 @@ import {
 import { AutoAppendTokenInterceptor } from 'src/app/auth/interceptors/auto-append-token/auto-append-token.interceptor';
 import { applicationConfiguration } from 'src/app/config/app.config';
 import { OcTokenService } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 
 describe('AutoAppendTokenInterceptor', () => {
   const mockToken = 'ABC123';

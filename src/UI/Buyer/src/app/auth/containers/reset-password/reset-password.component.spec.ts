@@ -12,7 +12,7 @@ import {
 } from 'src/app/config/app.config';
 
 import { OcPasswordResetService } from '@ordercloud/angular-sdk';
-import { CookieModule } from 'ngx-cookie';
+import { CookieModule } from '@gorniv/ngx-universal';
 import { ToastrService } from 'ngx-toastr';
 import { AppFormErrorService } from 'src/app/shared';
 
