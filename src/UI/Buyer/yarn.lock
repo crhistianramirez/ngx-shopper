@@ -5196,10 +5196,10 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-ngx-image-zoom@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/ngx-image-zoom/-/ngx-image-zoom-0.4.1.tgz#68d3e19128f1e50f66ec5acfde09fa4b0ec36eb7"
-  integrity sha512-y9hW3MSNh6S0WbA8x21pp1VBRpmVKkgzp1K06ciMunPze79Fyiqfyk50PBYCc8qhD0f+uK2pw5U8iTzFvsQrBA==
+ngx-image-zoom@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/ngx-image-zoom/-/ngx-image-zoom-0.4.2.tgz#fab5a9c5f687321e65e756697f11134d5fe57c29"
+  integrity sha512-/HDtVBdotM76d8pRGDa6tMDWFKypC7G+FnpsT7mV1O4hNYjCV1aF0XkM9qyQr3QHL6AxPbLM9gzv00lY2ymHig==
 
 ngx-toastr@^9.1.1:
   version "9.2.0"
