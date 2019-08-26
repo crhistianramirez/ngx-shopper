@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 
-import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
+import { BaseResolveService } from '../../services/base-resolve/base-resolve.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IsProfiledUserGuard implements CanActivate {
-  constructor(private appStateService: AppStateService) {}
+  constructor(private baseResolveService: BaseResolveService) {}
 
   canActivate(): boolean {
-    return !this.appStateService.isAnonSubject.value;
+    // can't access anything from appStateService because
+    // that gets set in baseResolve and all guards get hit before all resolves
+    return !this.baseResolveService.isAnon();
   }
 }

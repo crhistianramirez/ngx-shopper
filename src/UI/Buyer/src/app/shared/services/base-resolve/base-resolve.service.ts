@@ -19,10 +19,7 @@ import * as jwtDecode from 'jwt-decode';
 import { isUndefined as _isUndefined } from 'lodash';
 
 // app
-import {
-  applicationConfiguration,
-  AppConfig,
-} from 'src/app/config/app.config';
+import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 
 @Injectable({
   providedIn: 'root',
@@ -79,7 +76,7 @@ export class BaseResolveService {
   // Used by BaseResolve when app first loads, at login and at logout
   // auth guards have confirmed at this point a token exists
   setUser(): Observable<any> {
-    const isAnon = !_isUndefined(this.getOrderIDFromToken());
+    const isAnon = this.isAnon();
     this.appStateService.isAnonSubject.next(isAnon);
     const prevLineItems = this.appStateService.lineItemSubject.value;
     const transferCart =
@@ -104,6 +101,10 @@ export class BaseResolveService {
         this.appStateService.lineItemSubject.next(res);
       })
     );
+  }
+
+  isAnon() {
+    return !_isUndefined(this.getOrderIDFromToken());
   }
 
   getOrderIDFromToken(): string | void {
