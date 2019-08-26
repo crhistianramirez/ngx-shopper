@@ -1,7 +1,15 @@
 import { takeWhile } from 'rxjs/operators';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  PLATFORM_ID,
+  Inject,
+} from '@angular/core';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { fromEvent } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'product-additional-image-gallery',
@@ -21,24 +29,30 @@ export class AdditionalImageGalleryComponent implements OnInit, OnDestroy {
   faAngleRight = faAngleRight;
   isResponsiveView: boolean;
 
-  constructor() {
-    this.isResponsiveView = window.innerWidth > 900;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.onResize();
   }
   ngOnInit() {
     this.imgUrls = this.imgUrls || [];
-    fromEvent(window, 'resize')
-      .pipe(
-        // only subscribe to event while directive
-        // is alive to prevent memory leak
-        takeWhile(() => this.alive)
-      )
-      .subscribe(() => {
-        this.onResize();
-      });
+    if (isPlatformBrowser(this.platformId)) {
+      fromEvent(window, 'resize')
+        .pipe(
+          // only subscribe to event while directive
+          // is alive to prevent memory leak
+          takeWhile(() => this.alive)
+        )
+        .subscribe(() => {
+          this.onResize();
+        });
+    }
   }
 
   onResize() {
-    this.isResponsiveView = window.innerWidth > 900;
+    if (isPlatformBrowser(this.platformId)) {
+      this.isResponsiveView = window.innerWidth > 900;
+    } else {
+      this.isResponsiveView = true;
+    }
   }
 
   select(url: string): void {

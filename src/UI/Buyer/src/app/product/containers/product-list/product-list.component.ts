@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { flatMap, tap } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FavoriteProductsService } from 'src/app/shared/services/favorites/favorites.service';
 import { ProductSortStrategy } from 'src/app/product/models/product-sort-strategy.enum';
 import { isEmpty as _isEmpty, each as _each } from 'lodash';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'product-list',
@@ -42,7 +43,8 @@ export class ProductListComponent implements OnInit {
     private cartService: CartService,
     public favoriteProductsService: FavoriteProductsService,
     private appStateService: AppStateService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -236,7 +238,9 @@ export class ProductListComponent implements OnInit {
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         this.router.navigated = false;
-        window.scrollTo(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scrollTo(0, 0);
+        }
       }
     });
   }

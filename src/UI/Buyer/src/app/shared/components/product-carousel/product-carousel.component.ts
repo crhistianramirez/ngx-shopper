@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { BuyerProduct } from '@ordercloud/angular-sdk';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'product-carousel',
@@ -17,7 +18,10 @@ export class ProductCarouselComponent {
   faAngleLeft = faAngleLeft;
   faAngleRight = faAngleRight;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
     this.configureRouter();
   }
 
@@ -44,7 +48,9 @@ export class ProductCarouselComponent {
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         this.router.navigated = false;
-        window.scrollTo(0, 0);
+        if (isPlatformBrowser(this.platformId)) {
+          window.scrollTo(0, 0);
+        }
       }
     });
   }

@@ -11,13 +11,13 @@ import {
 } from 'src/app/shared';
 import { HomeComponent } from 'src/app/layout/home/home.component';
 // import { TermsAndConditionsComponent } from 'src/app/static-pages/terms-and-conditions/terms-and-conditions.component';
-// import { ProductsModule } from './product/product.module';
+import { ProductsModule } from './product/product.module';
 // import { ProfileModule } from './profile/profile.module';
 // import { CheckoutModule } from './checkout/checkout.module';
 
-// export function loadProductsModule() {
-//   return ProductsModule;
-// }
+export function loadProductsModule() {
+  return ProductsModule;
+}
 
 // export function loadProfileModule() {
 //   return ProfileModule;
@@ -54,10 +54,10 @@ const routes: Routes = [
       //   path: 'terms-and-conditions',
       //   component: TermsAndConditionsComponent,
       // },
-      // {
-      //   path: 'products',
-      //   loadChildren: './product/product.module#ProductsModule',
-      // },
+      {
+        path: 'products',
+        loadChildren: './product/product.module#ProductsModule',
+      },
       // { path: '', loadChildren: './checkout/checkout.module#CheckoutModule' },
       // { path: 'impersonation', redirectTo: '/home' },
     ],

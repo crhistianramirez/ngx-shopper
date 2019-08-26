@@ -8,9 +8,12 @@ import {
   Directive,
   QueryList,
   ViewContainerRef,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
 import { ModalService } from 'src/app/shared/services/modal/modal.service';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * To use this ModalComponent add the following html to your template.
@@ -50,7 +53,8 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   constructor(
     private modalService: ModalService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
@@ -59,11 +63,13 @@ export class ModalComponent implements OnInit, OnDestroy {
       throw Error('modal must have an id');
     }
 
-    // move element to bottom of page (just before </body>) so it can be displayed above everything else
-    document.body.appendChild(this.elementRef.nativeElement);
+    if (isPlatformBrowser(this.platformId)) {
+      // move element to bottom of page (just before </body>) so it can be displayed above everything else
+      document.body.appendChild(this.elementRef.nativeElement);
 
-    // add self (this modal instance) to the modal service so it's accessible from controllers
-    this.modalService.add(this);
+      // add self (this modal instance) to the modal service so it's accessible from controllers
+      this.modalService.add(this);
+    }
   }
 
   // remove self from modal service when directive is destroyed
@@ -77,7 +83,9 @@ export class ModalComponent implements OnInit, OnDestroy {
   open(): void {
     this.isOpen = true;
     this.elementRef.nativeElement.style.display = 'block';
-    document.body.classList.add('shared-modal--open');
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.classList.add('shared-modal--open');
+    }
   }
 
   // close modal
@@ -87,6 +95,8 @@ export class ModalComponent implements OnInit, OnDestroy {
     // Only applies to components with the ResetDirective
     this.children.forEach((child) => child.component.ngOnInit());
     this.elementRef.nativeElement.style.display = 'none';
-    document.body.classList.remove('shared-modal--open');
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.classList.remove('shared-modal--open');
+    }
   }
 }
