@@ -12,16 +12,16 @@ import {
 import { HomeComponent } from 'src/app/layout/home/home.component';
 // import { TermsAndConditionsComponent } from 'src/app/static-pages/terms-and-conditions/terms-and-conditions.component';
 import { ProductsModule } from './product/product.module';
-// import { ProfileModule } from './profile/profile.module';
+import { ProfileModule } from './profile/profile.module';
 // import { CheckoutModule } from './checkout/checkout.module';
 
 export function loadProductsModule() {
   return ProductsModule;
 }
 
-// export function loadProfileModule() {
-//   return ProfileModule;
-// }
+export function loadProfileModule() {
+  return ProfileModule;
+}
 
 // export function loadCheckoutModule() {
 //   return CheckoutModule;
@@ -37,11 +37,11 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      // {
-      //   path: 'profile',
-      //   loadChildren: './profile/profile.module#ProfileModule',
-      //   canActivate: [isProfiledUser],
-      // },
+      {
+        path: 'profile',
+        loadChildren: './profile/profile.module#ProfileModule',
+        canActivate: [isProfiledUser],
+      },
       // {
       //   path: 'support',
       //   component: SupportComponent,
