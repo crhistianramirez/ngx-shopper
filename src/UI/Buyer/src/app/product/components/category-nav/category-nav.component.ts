@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ListCategory, Category } from '@ordercloud/angular-sdk';
-import { ITreeOptions } from 'angular-tree-component';
+// import { ITreeOptions } from 'angular-tree-component'; // TODO: figure out angular-tree-component for SSR
 import { CategoryTreeNode } from 'src/app/product/models/category-tree-node.class';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,19 +14,20 @@ export class CategoryNavComponent implements OnInit {
   @Output() selection = new EventEmitter<CategoryTreeNode>();
   categoryTree: CategoryTreeNode[];
   private activeCategoryID: string;
-  options: ITreeOptions = {
-    nodeClass: (node: CategoryTreeNode) => {
-      return this.activeCategoryID === node.id ? 'font-weight-bold' : null;
-    },
-    actionMapping: {
-      mouse: {
-        click: (_tree, _node, _$event) => {
-          this.selection.emit(_node.id);
-        },
-      },
-    },
-    animateExpand: true,
-  };
+  // TODO: figure out angular-tree-component for SSR
+  // options: ITreeOptions = {
+  //   nodeClass: (node: CategoryTreeNode) => {
+  //     return this.activeCategoryID === node.id ? 'font-weight-bold' : null;
+  //   },
+  //   actionMapping: {
+  //     mouse: {
+  //       click: (_tree, _node, _$event) => {
+  //         this.selection.emit(_node.id);
+  //       },
+  //     },
+  //   },
+  //   animateExpand: true,
+  // };
 
   constructor(private activatedRoute: ActivatedRoute) {}
 

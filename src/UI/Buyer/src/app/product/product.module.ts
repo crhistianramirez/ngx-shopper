@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared';
-import { TreeModule } from 'angular-tree-component';
+// import { TreeModule } from 'angular-tree-component'; // TODO: figure out angular-tree-component for SSR
 import { ProductsRoutingModule } from 'src/app/product/product-routing.module';
 import { ProductListComponent } from 'src/app/product/containers/product-list/product-list.component';
 import { ProductDetailsComponent } from 'src/app/product/containers/product-details/product-details.component';
@@ -17,7 +17,7 @@ import { SpecFormComponent } from './components/spec-form/spec-form.component';
   imports: [
     SharedModule,
     ProductsRoutingModule,
-    TreeModule,
+    // TreeModule, // TODO: figure out angular-tree-component for SSR
     NgxImageZoomModule,
   ],
   declarations: [
