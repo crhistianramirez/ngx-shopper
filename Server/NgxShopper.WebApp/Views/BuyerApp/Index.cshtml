@@ -1,0 +1,36 @@
+﻿@model NgxShopper.Common.Models.FileStats
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <base href="@(Url.Content("~/"))" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="icon" href="ngxbuyer/dist/browser/assets/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @foreach (var url in Model.hrefs)
+    {
+        <link rel="stylesheet" href="@url">
+    }
+    @Html.Raw(ViewData["Meta"])
+    @Html.Raw(ViewData["Links"])
+    @Html.Raw(ViewData["Styles"])
+</head>
+<body>
+    @Html.Raw(ViewData["SpaHtml"])
+    @Html.Raw(ViewData["TransferData"])
+    @Html.Raw(ViewData["Scripts"])
+    @foreach (var url in Model.scripts)
+    {
+        if (url.Contains("polyfills-es5"))
+        {
+            <script src="@url" nomodule></script>
+        }
+        else
+        {
+            <script src="@url"></script>
+        }
+    }
+</body>
+</html>

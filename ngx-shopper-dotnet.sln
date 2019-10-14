@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NgxShopper.WebApp", "Server\NgxShopper.WebApp\NgxShopper.WebApp.csproj", "{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{716232F5-4E40-4A5E-A95E-16E6E58C441A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgxShopper.Common", "Server\NgxShopper.Common\NgxShopper.Common.csproj", "{FAB34571-CF88-43DB-B6A4-728D3887C8C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB34571-CF88-43DB-B6A4-728D3887C8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB34571-CF88-43DB-B6A4-728D3887C8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB34571-CF88-43DB-B6A4-728D3887C8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB34571-CF88-43DB-B6A4-728D3887C8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2119A08-163D-4FE5-BA62-9B2EEDB0DDB6} = {716232F5-4E40-4A5E-A95E-16E6E58C441A}
+		{FAB34571-CF88-43DB-B6A4-728D3887C8C6} = {716232F5-4E40-4A5E-A95E-16E6E58C441A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0E2D3E8-4636-4C72-985C-E915AF4F0C7C}
+	EndGlobalSection
+EndGlobal
