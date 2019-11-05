@@ -1,0 +1,30 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:54479",
+      "sslPort": 44381
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "NgxShopperTest": {
+      "commandName": "Project"
+    },
+    "NgxShopperLocal": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DEVOPS_STORAGE": "DefaultEndpointsProtocol=https;AccountName=ocdevops;AccountKey=cvhFWcJ4bF4rwnPMBpkDAZrOO9SCdkCXLxqZtsCSeulhYpT59Q3Fe20CNTxgQiBhIHt0lYvGez0s0ITMGdmEjA==;EndpointSuffix=core.windows.net",
+        "DEVOPS_APPNAME": "ngxshopper",
+        "ASPNETCORE_ENVIRONMENT": "local"
+      }
+    }
+  }
+}

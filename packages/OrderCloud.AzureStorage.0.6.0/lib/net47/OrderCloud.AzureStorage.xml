@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ordercloud-azurestorage</name>
+    </assembly>
+    <members>
+        <member name="M:OrderCloud.AzureStorage.DynamicObjectTableEntity.ConvertToEntityProperty(System.String,System.Object)">
+            <summary> 
+            Convert object value to EntityProperty. 
+            </summary> 
+        </member>
+        <member name="M:OrderCloud.AzureStorage.DynamicObjectTableEntity.GetType(Microsoft.WindowsAzure.Storage.Table.EdmType)">
+            <summary> 
+            Get the edm type, if the type is not a edm type throw a exception. 
+            </summary> 
+        </member>
+    </members>
+</doc>
