@@ -88,6 +88,14 @@ import { AppErrorHandler } from './config/error-handling.config';
       useClass: CacheInterceptor,
       multi: true,
     },
+    {
+      provide: NgxRequest,
+      useValue: { cookie: '', headers: {}}
+    },
+    {
+      provide: NgxResponce,
+      useValue: { cookie: '', headers: {}}
+    },
     { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter },
     { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
