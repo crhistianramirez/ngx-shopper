@@ -8,17 +8,18 @@ import { AppAuthService } from 'src/app/auth/services/app-auth.service';
 import { of, Observable } from 'rxjs';
 import { flatMap, map } from 'rxjs/operators';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
-import { isPlatformServer } from '@angular/common';
+import { REQUEST } from '@nguniversal/aspnetcore-engine/tokens';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HasTokenGuard implements CanActivate {
+export class HasTokenServerGuard implements CanActivate {
   constructor(
     private ocTokenService: OcTokenService,
     private router: Router,
     private appAuthService: AppAuthService,
     private appStateService: AppStateService,
+    @Inject(REQUEST) private request: any,
     @Inject(applicationConfiguration) private appConfig: AppConfig
   ) {}
   canActivate(): Observable<boolean> {
@@ -32,7 +33,7 @@ export class HasTokenGuard implements CanActivate {
      */
 
     // check if impersonation supersedes existing tokens to allow impersonating buyers sequentially.
-    const isImpersonating = window.location.pathname === '/impersonation';
+    const isImpersonating = this.request.path === '/impersonation';
     if (isImpersonating) {
       const match = /token=([^&]*)/.exec(window.location.search);
       if (match) {
